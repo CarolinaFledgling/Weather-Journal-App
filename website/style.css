@@ -61,7 +61,7 @@ body {
   border: none;
   border-radius: 5px;
   padding-left: 10px;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
   margin-top: 0.5rem;
   box-shadow: 2px 4px 5px #444;
 }
@@ -86,7 +86,7 @@ body {
 
 .holder__label {
   display: block;
-  margin-bottom: 1rem;
+  margin: 1.2rem 0;
   font-weight: 300;
   text-align: center;
   line-height: 150%;
@@ -174,4 +174,9 @@ body {
   cursor: pointer;
   border-radius: 5px;
   margin: 0.5rem 0 0 0;
+}
+
+.warning {
+  font-size: 0.8rem;
+  color: #ff4365;
 }

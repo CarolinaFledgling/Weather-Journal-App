@@ -9,6 +9,7 @@ const city = document.getElementById('content');
 const weather = document.getElementById('weather');
 const describeAnswer = document.getElementById('describe');
 const photo = document.querySelector('.entry__photo')
+const warning = document.querySelector('.warning')
 
 
 // Create a new date instance dynamically with JS
@@ -28,7 +29,7 @@ let url;
 // Function to get info about Weather 
 
 const getWeather = () => {
-    zipCode = inputZipCode.value;
+    zipCode = (!inputZipCode.value) ? '94040' : inputZipCode.value;
     let describeFeelings = descriptionTextarea.value;
     describeAnswer.textContent = 'Your answered: ' + describeFeelings;
     console.log(zipCode, describeAnswer)
@@ -76,7 +77,7 @@ const getWeather = () => {
                 photo.setAttribute('src', './img/unknown.png');
             }
         })
-        .catch(error => console.log(error));
+        .catch(() => warning.textContent = 'Please enter a valid zip code ')
 
 }
 
