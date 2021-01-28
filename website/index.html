@@ -9,33 +9,30 @@
 </head>
 
 <body>
-    <main class="wrapper">
-        <div id="app">
-            <div class="holder">
-                <h1 class="holder__title">Weather Journal App</h1>
-            </div>
-            <div class="holder">
-                <input class="holder__input" type="text" id="zip" placeholder="Enter US zip code here e.g. 94040">
-            </div>
-            <div class="holder">
-                <label class="holder__label" for="feelings">What kind of weather <br>would you like to have
-                    today?</label>
-                <textarea class="holder__textarea" placeholder="Enter your describe here" rows="1"></textarea>
-            </div>
-            <p class="entry__title">Well, let's see how good you are 😅</p>
-            <div class="entry">
-                <img class="entry__photo" src="./img/FORECAST.svg" alt="a picture of the weather">
-                <!-- <div class="icon" id="icon"></div> -->
-                <div id="entryHolder">
-                    <div id="date"></div>
-                    <div id="temp"></div>
-                    <div id="content"></div>
-                    <div id="weather"></div>
-                    <div id="describe"></div>
-                </div>
-            </div>
-            <button class="btn" id="generate" type="submit"> Generate </button>
+    <main id="app">
+        <div class="holder">
+            <h1 class="holder__title">Weather Journal App</h1>
         </div>
+        <div class="holder">
+            <input class="holder__input" type="text" id="zip" placeholder="Enter US zip code here e.g. 94040">
+        </div>
+        <div class="holder">
+            <label class="holder__label" for="feelings">What kind of weather <br>would you like to have
+                today?</label>
+            <textarea class="holder__textarea" placeholder="Enter your describe here" rows="1"></textarea>
+        </div>
+        <p class="entry__title">Well, let's see how good you are 😅</p>
+        <div class="entry">
+            <img class="entry__photo" src="./img/FORECAST.svg" alt="a picture of the weather">
+            <div id="entryHolder">
+                <div id="date"></div>
+                <div id="temp"></div>
+                <div id="content"></div>
+                <div id="weather"></div>
+                <div id="describe"></div>
+            </div>
+        </div>
+        <button class="btn" id="generate" type="submit"> Generate </button>
     </main>
     <script src="app.js" type="text/javascript"></script>
 </body>

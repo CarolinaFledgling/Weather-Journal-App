@@ -24,15 +24,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   background-color: #fffffa;
-}
-
-.wrapper {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
 }
 
 #app {
@@ -45,6 +38,7 @@ body {
   grid-gap: 0.1em;
   font-size: 20px;
   padding: 1.5rem 2rem;
+  margin: 1rem 0;
   border-radius: 10px;
   box-shadow: 2px 4px 5px #444;
 }
@@ -164,7 +158,7 @@ body {
 #describe {
   margin-top: 2rem;
   color: #ff4365;
-  font-weight: 400;
+  font-weight: bold;
 }
 
 /* end style for entry */

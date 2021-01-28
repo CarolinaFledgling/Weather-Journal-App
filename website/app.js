@@ -30,7 +30,7 @@ let url;
 const getWeather = () => {
     zipCode = inputZipCode.value;
     let describeFeelings = descriptionTextarea.value;
-    describeAnswer.textContent = 'Your answered :' + describeFeelings;
+    describeAnswer.textContent = 'Your answered: ' + describeFeelings;
     console.log(zipCode, describeAnswer)
 
     if (zipCode === '') {
