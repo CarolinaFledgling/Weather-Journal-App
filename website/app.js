@@ -51,6 +51,11 @@ const getWeather = () => {
             city.textContent = cityName;
             date.textContent = newDate;
             weather.textContent = weatherDes;
+            postData('/add', {
+                temperature,
+                date,
+                describeAnswer,
+            });
 
             // adjust the display picture according to the weather status https://openweathermap.org/weather-conditions
             if (statusWeather.id >= 200 && statusWeather.id < 300) {
@@ -74,5 +79,18 @@ const getWeather = () => {
         .catch(error => console.log(error));
 
 }
+
+// Function post date to my server 
+
+async function postData(url, data) {
+    await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify(data) // need to be change fro JSON , because of 'Content-Type': "application/json"
+    });
+};
 
 btn.addEventListener('click', getWeather)

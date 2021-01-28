@@ -27,3 +27,20 @@ const server = app.listen(port, listening);
 function listening() {
     console.log(`running on localhost: ${port}`);
 };
+
+
+//GET route 
+
+
+
+// Post route 
+
+app.post('/add', postData);
+
+function postData(req, res) {
+    projectData = req.body;
+    res.send({
+        message: 'post recived'
+    });
+    console.log(projectData)
+}
