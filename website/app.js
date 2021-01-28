@@ -32,11 +32,49 @@ const getWeather = () => {
 
     zipCode = inputZipCode.value;
     let describeFeelings = descriptionTextarea.value;
-    describeAnswer.textContent= 'Your answered :' + describeFeelings;
+    describeAnswer.textContent = 'Your answered :' + describeFeelings;
     console.log(zipCode, describeAnswer)
 
-    
-}
+    if (zipCode === '') {
+        return console.log('there is no zip code')
+    }
 
+    fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            const temp = res.main.temp;
+            const cityName = res.name;
+            const statusWeather = Object.assign({}, ...res.weather);
+            const weatherDes = statusWeather.main;
+            console.log(tem, cityName, weatherDes)
+
+            temperature.textContent = Math.floor(temp) + ' ℃';
+            city.textContent = cityName;
+            date.textContent = newDate;
+            weather.textContent = weatherDes;
+
+            // adjust the display picture according to the weather status https://openweathermap.org/weather-conditions
+            if (statusWeather.id >= 200 && statusWeather.id < 300) {
+                photo.setAttribute('src', './img/thunderstorm.png');
+            } else if (statusWeather.id >= 300 && statusWeather.id < 400) {
+                photo.setAttribute('src', './img/drizzle.png');
+            } else if (statusWeather.id >= 500 && statusWeather.id < 600) {
+                photo.setAttribute('src', './img/rain.png');
+            } else if (statusWeather.id >= 600 && statusWeather.id < 700) {
+                photo.setAttribute('src', './img/ice.png');
+            } else if (statusWeather.id >= 700 && statusWeather.id < 800) {
+                photo.setAttribute('src', './img/fog.png');
+            } else if (statusWeather.id === 800) {
+                photo.setAttribute('src', './img/sun.png');
+            } else if (statusWeather.id > 800 && statusWeather.id < 900) {
+                photo.setAttribute('src', './img/cloud.png');
+            } else {
+                photo.setAttribute('src', './img/unknown.png');
+            }
+        })
+        .catch(error => console.log(error));
+
+}
 
 btn.addEventListener('click', getWeather)
