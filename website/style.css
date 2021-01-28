@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+html {
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  color: #070600;
+  font-weight: 300;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fffffa;
+}
+
+.wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+#app {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: #0c7c59;
+  color: #f7f7ff;
+  justify-content: center;
+  grid-gap: 0.1em;
+  font-size: 20px;
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px #444;
+}
+
+/* Start style for Holder */
+
+.holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0.3rem 0;
+}
+
+.holder__input {
+  display: block;
+  height: 40px;
+  background: #ffcb1f;
+  color: rgba(7, 6, 0, 0.747);
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-bottom: 1.2rem;
+  margin-top: 0.5rem;
+  box-shadow: 2px 4px 5px #444;
+}
+
+.holder__input::placeholder {
+  color: rgba(7, 6, 0, 0.747);
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.holder__title {
+  font-size: 2rem;
+  text-align: center;
+  color: #070600;
+  box-shadow: 2px 4px 5px #444;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  background-color: #f7f7ff;
+}
+
+.holder__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  text-align: center;
+  line-height: 150%;
+  font-size: 1.3rem;
+}
+
+.holder__textarea {
+  background: #f7f7ff;
+  color: #070600;
+  font-size: 0.9rem;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  resize: none;
+  box-shadow: 2px 4px 5px #444;
+}
+
+.holder__textarea::placeholder {
+  color: #070600;
+}
+
+/* end style for Holder */
+
+/* start style for entry */
+
+.entry {
+  background: #f7f7ff;
+  border-radius: 5px;
+  color: #070600;
+  padding: 2rem;
+  box-shadow: 2px 4px 5px #444;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3rem 0;
+}
+
+#entryHolder {
+  text-align: center;
+  font-weight: bold;
+}
+
+.entry__title {
+  margin: 0.5rem 0;
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.entry__photo {
+  height: 7rem;
+}
+
+#date {
+  margin: 1rem 0;
+}
+
+#temp {
+  margin: 1rem 0;
+  color: #ff4365;
+  font-size: 1.2rem;
+}
+
+#content {
+  margin: 1rem 0;
+}
+
+#describe {
+  margin-top: 2rem;
+  color: #ff4365;
+  font-weight: 400;
+}
+
+/* end style for entry */
+
+/* style for button */
+.btn {
+  height: 50px;
+  background: #ffcb1f;
+  color: #070600;
+  font-size: 1.3rem;
+  border: none;
+  box-shadow: 2px 4px 5px #444;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0.5rem 0 0 0;
+}
