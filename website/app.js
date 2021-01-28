@@ -28,8 +28,6 @@ let url;
 // Function to get info about Weather 
 
 const getWeather = () => {
-    url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}${units}`;
-
     zipCode = inputZipCode.value;
     let describeFeelings = descriptionTextarea.value;
     describeAnswer.textContent = 'Your answered :' + describeFeelings;
@@ -38,6 +36,7 @@ const getWeather = () => {
     if (zipCode === '') {
         return console.log('there is no zip code')
     }
+    url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}${units}`;
 
     fetch(url)
         .then(res => res.json())
@@ -47,8 +46,7 @@ const getWeather = () => {
             const cityName = res.name;
             const statusWeather = Object.assign({}, ...res.weather);
             const weatherDes = statusWeather.main;
-            console.log(tem, cityName, weatherDes)
-
+            console.log(temp, cityName, weatherDes)
             temperature.textContent = Math.floor(temp) + ' ℃';
             city.textContent = cityName;
             date.textContent = newDate;
