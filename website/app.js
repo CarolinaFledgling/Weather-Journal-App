@@ -58,6 +58,8 @@ const getWeather = () => {
                 describeAnswer,
             });
 
+            inputZipCode.value = '';
+
             // adjust the display picture according to the weather status https://openweathermap.org/weather-conditions
             if (statusWeather.id >= 200 && statusWeather.id < 300) {
                 photo.setAttribute('src', './img/thunderstorm.png');
@@ -78,6 +80,7 @@ const getWeather = () => {
             }
         })
         .catch(() => warning.textContent = 'Please enter a valid zip code ')
+    warning.textContent = '';
 
 }
 
