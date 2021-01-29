@@ -29,11 +29,17 @@ function listening() {
 };
 
 
-//GET route 
+//GET route Wysyłanie do client app.js
+app.get('/all', sendData);
+
+function sendData(req, res) {
+    res.send(projectData)
+    res.send(console.log('hello'))
+}
 
 
 
-// Post route 
+// Post route otrzymanie z client i wysłanie odp o otrzymaniu 
 
 app.post('/add', postData);
 
