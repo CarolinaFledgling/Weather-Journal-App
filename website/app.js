@@ -53,9 +53,9 @@ const getWeather = () => {
             date.textContent = newDate;
             weather.textContent = weatherDes;
             postData('/add', {
-                temperature,
-                date,
-                describeAnswer,
+                temperature: temperature.textContent,
+                date: date.textContent,
+                describeAnswer: describeAnswer.textContent
             });
 
             inputZipCode.value = '';
