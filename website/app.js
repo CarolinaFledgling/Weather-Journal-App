@@ -11,7 +11,6 @@ const describeAnswer = document.getElementById('describe');
 const photo = document.querySelector('.entry__photo')
 const warning = document.querySelector('.warning')
 
-
 // Create a new date instance dynamically with JS
 let d = new Date();
 let newDate = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
@@ -45,7 +44,7 @@ const getWeather = () => {
             console.log(res)
             const temp = res.main.temp;
             const cityName = res.name;
-            const statusWeather = Object.assign({}, ...res.weather);
+            const statusWeather = Object.assign({}, ...res.weather); // Object.assign this method is used to copy one or more source objects to a target object
             const weatherDes = statusWeather.main;
             console.log(temp, cityName, weatherDes)
             temperature.textContent = Math.floor(temp) + ' ℃';
@@ -81,9 +80,7 @@ const getWeather = () => {
         })
         .catch(() => warning.textContent = 'Please enter a valid zip code ')
     warning.textContent = '';
-
 }
-
 // Function post date to my server 
 
 async function postData(url, data) {
@@ -93,7 +90,7 @@ async function postData(url, data) {
         headers: {
             'Content-Type': "application/json"
         },
-        body: JSON.stringify(data) // need to be change fro JSON , because of 'Content-Type': "application/json"
+        body: JSON.stringify(data) // need to be change for JSON , because of 'Content-Type': "application/json"
     });
 };
 
