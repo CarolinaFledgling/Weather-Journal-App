@@ -29,7 +29,7 @@ function listening() {
 };
 
 
-//GET route Wysyłanie do client app.js
+//GET route
 app.get('/all', sendData);
 
 function sendData(req, res) {
@@ -39,7 +39,7 @@ function sendData(req, res) {
 
 
 
-// Post route otrzymanie z client i wysłanie odp o otrzymaniu 
+// Post route 
 
 app.post('/add', postData);
 

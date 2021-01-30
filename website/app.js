@@ -28,14 +28,9 @@ let url;
 // Function to get info about Weather 
 
 const getWeather = () => {
-    zipCode = (!inputZipCode.value) ? '94040' : inputZipCode.value;
+    zipCode = inputZipCode.value;
     let describeFeelings = descriptionTextarea.value;
-    describeAnswer.textContent = 'Your answered: ' + describeFeelings;
-    console.log(zipCode, describeAnswer)
 
-    if (zipCode === '') {
-        return console.log('there is no zip code')
-    }
     url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}${units}`;
 
     fetch(url)
@@ -47,15 +42,20 @@ const getWeather = () => {
             const statusWeather = Object.assign({}, ...res.weather); // Object.assign this method is used to copy one or more source objects to a target object
             const weatherDes = statusWeather.main;
             console.log(temp, cityName, weatherDes)
-            temperature.textContent = Math.floor(temp) + ' ℃';
+            const tempFloor = Math.floor(temp)
             city.textContent = cityName;
-            date.textContent = newDate;
             weather.textContent = weatherDes;
             postData('/add', {
-                temperature: temperature.textContent,
-                date: date.textContent,
-                describeAnswer: describeAnswer.textContent
-            });
+                temperature: tempFloor,
+                date: newDate,
+                describeAnswer: describeFeelings,
+            }).then((res) => {
+                const responeJson = res.json();
+                return responeJson
+            }).then((json) => {
+                console.log(json)
+                updateUI();
+            })
 
             inputZipCode.value = '';
 
@@ -78,13 +78,19 @@ const getWeather = () => {
                 photo.setAttribute('src', './img/unknown.png');
             }
         })
-        .catch(() => warning.textContent = 'Please enter a valid zip code ')
+        .catch(() => {
+            if (zipCode === '') {
+                warning.textContent = 'Please enter a valid zip code'
+                return console.log('there is no zip code')
+            }
+        })
+
     warning.textContent = '';
 }
 // Function post date to my server 
 
 async function postData(url, data) {
-    await fetch(url, {
+    return await fetch(url, {
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -93,5 +99,18 @@ async function postData(url, data) {
         body: JSON.stringify(data) // need to be change for JSON , because of 'Content-Type': "application/json"
     });
 };
+
+//  Function updateUI
+
+const updateUI = () => {
+    fetch('/all')
+        .then(res => res.json())
+        .then((json) => {
+            console.log(json)
+            date.innerHTML = json.date;
+            temperature.innerHTML = json.temperature + ' °C';
+            describeAnswer.innerHTML = 'Your answered: ' + json.describeAnswer;
+        })
+}
 
 btn.addEventListener('click', getWeather)
