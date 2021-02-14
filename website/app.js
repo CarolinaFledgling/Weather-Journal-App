@@ -21,6 +21,9 @@ const apiLink = 'api.openweathermap.org/data/2.5/weather?q=';
 const apiKey = '5bb278a6a7c5f285bd3b3bfd9852892a';
 const units = '&units=metric';
 
+
+
+
 // Function to get info about Weather 
 
 const getWeather = () => {
@@ -87,7 +90,7 @@ const getWeather = () => {
 function postData(url, data) {
     return fetch(url, {
         method: 'POST',
-        credentials: 'same-origin', //usunac 
+        credentials: 'same-origin',//usunac 
         headers: {
             'Content-Type': "application/json"
         },
