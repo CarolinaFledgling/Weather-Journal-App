@@ -11,7 +11,7 @@ const describeAnswer = document.getElementById('describe');
 const photo = document.querySelector('.entry__photo')
 const warning = document.querySelector('.warning')
 
-// Create a new date instance dynamically with JS
+
 let d = new Date();
 let newDate = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 
@@ -21,17 +21,12 @@ const apiLink = 'api.openweathermap.org/data/2.5/weather?q=';
 const apiKey = '5bb278a6a7c5f285bd3b3bfd9852892a';
 const units = '&units=metric';
 
-let zipCode;
-let url;
-
-
 // Function to get info about Weather 
 
 const getWeather = () => {
-    zipCode = inputZipCode.value;
-    let describeFeelings = descriptionTextarea.value;
-
-    url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}${units}`;
+    const zipCode = inputZipCode.value;
+    const describeFeelings = descriptionTextarea.value;
+    const url = `http://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${apiKey}${units}`;
 
     fetch(url)
         .then(res => res.json())
@@ -89,10 +84,10 @@ const getWeather = () => {
 }
 // Function post date to my server 
 
-async function postData(url, data) {
-    return await fetch(url, {
+function postData(url, data) {
+    return fetch(url, {
         method: 'POST',
-        credentials: 'same-origin',
+        credentials: 'same-origin', //usunac 
         headers: {
             'Content-Type': "application/json"
         },

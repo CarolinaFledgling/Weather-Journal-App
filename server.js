@@ -8,6 +8,8 @@ const app = express();
 
 // Middleware 
 
+//configuring express to use body-parser and cors  
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: false
@@ -17,6 +19,8 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
+
+// Initialize the main project folder
 app.use(express.static('website'));
 
 // Setup Server
