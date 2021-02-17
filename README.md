@@ -20,9 +20,9 @@ in the terminal, type / execute the server.js file with
 
 
 ## Screenshots
-![](images//readme.jpg)
+![](/website/img/img.jpg)
 
-## Code Examples
+
 
 
 
