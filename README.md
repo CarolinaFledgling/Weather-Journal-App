@@ -17,7 +17,7 @@ in the terminal, type / execute the server.js file with
 `node server.js`
 
 
-## Preview the website live on : [DEMO]( https://carolinafledgling.github.io/Bookmark-landing-page/)
+
 
 ## Screenshots
 ![](images//readme.jpg)
