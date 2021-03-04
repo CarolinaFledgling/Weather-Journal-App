@@ -21,6 +21,9 @@ const apiLink = 'api.openweathermap.org/data/2.5/weather?q=';
 const apiKey = `***************`;
 const units = '&units=metric';
 
+
+
+
 // Function to get info about Weather 
 
 const getWeather = () => {
@@ -32,9 +35,13 @@ const getWeather = () => {
         .then(res => res.json())
         .then(res => {
             console.log(res)
+            // checking if the values exist 
+            if (res && !res.main) {
+                return;
+            }
             const temp = res.main.temp;
             const cityName = res.name;
-            const statusWeather = Object.assign({}, ...res.weather); // Object.assign this method is used to copy one or more source objects to a target object
+            const statusWeather = Object.assign({}, ...res.weather);
             const weatherDes = statusWeather.main;
             console.log(temp, cityName, weatherDes)
             const tempFloor = Math.floor(temp)
@@ -87,11 +94,11 @@ const getWeather = () => {
 function postData(url, data) {
     return fetch(url, {
         method: 'POST',
-        credentials: 'same-origin', //usunac 
+        credentials: 'same-origin',
         headers: {
             'Content-Type': "application/json"
         },
-        body: JSON.stringify(data) // need to be change for JSON , because of 'Content-Type': "application/json"
+        body: JSON.stringify(data) // strinfigify convert object into a string 
     });
 };
 
