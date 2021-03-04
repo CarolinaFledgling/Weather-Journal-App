@@ -18,7 +18,7 @@ let newDate = `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 // API openWeather.org
 
 const apiLink = 'api.openweathermap.org/data/2.5/weather?q=';
-const apiKey = '5bb278a6a7c5f285bd3b3bfd9852892a';
+const apiKey = `***************`;
 const units = '&units=metric';
 
 // Function to get info about Weather 
